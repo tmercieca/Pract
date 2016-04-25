@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:background="#80cbc4">
+        <!--can split into more linear views-->
+    <TextView
+        android:id="@+id/post_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post Title"
+        android:layout_marginLeft="20dp"
+        android:textSize="21sp"
+        android:layout_centerVertical="true" />
+        <EditText
+            android:id="@+id/post_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="21sp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/post_title_label"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0sp"
+        android:layout_weight="3"
+        android:background="#64ffda"
+        >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Post Description"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/post_description" />
+    </RelativeLayout>
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="0px"
+      android:gravity="center"
+      android:layout_weight="5"
+      android:background="#004d40"
+      android:layout_gravity="center"
+      android:id="@+id/relative_layout_test">
+
+      <!--<ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/selected_image"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentEnd="true" />  no point for imageview?-->
+
+      <ImageButton android:id="@+id/button_select_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/plus_icon"
+            android:textSize="30sp"
+            android:scaleType="centerInside"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:layout_alignParentStart="true" />
+  </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="#212121">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+                <Button android:id="@+id/cancel_button"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Cancel"
+                    android:padding="10dp"/>
+
+                <Button android:id="@+id/submit_button"
+                    android:layout_weight="20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Submit"
+                    android:padding="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
