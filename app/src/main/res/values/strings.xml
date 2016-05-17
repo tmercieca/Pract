@@ -2,11 +2,12 @@
     <string name="app_name">Practical</string>
     <string-array name="menuItem">
         <item>Portal</item>
-        <item>News</item>
+        <item>Gallery</item>
         <item>Settings</item>
         <item>Help</item>
         <item>About</item>
     </string-array>
+
     <string-array name="tabMenuItem">
         <item>Sport</item>
         <item>Science</item>
@@ -17,6 +18,6 @@
     <string name="post_title_label">Post Title</string>
     <string name="post_description">Post Description</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--placeholder text for fragment -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

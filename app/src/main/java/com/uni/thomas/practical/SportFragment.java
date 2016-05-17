@@ -5,10 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.activeandroid.ActiveAndroid;
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // In this case, the fragment displays simple text based on the page
 public class SportFragment extends Fragment {
@@ -26,26 +29,28 @@ public class SportFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActiveAndroid.initialize(getActivity());
+        // IMP http://stackoverflow.com/questions/6495898/findviewbyid-in-fragment
+
         mPage = getArguments().getInt(ARG_PAGE);
-
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sport, container, false);
-        TextView textView = (TextView) view; //sunday evening: problem is that xml is showing gridview and this line assumes it's listview
-        textView.setText("Fragment #" + mPage);
-        /////GridView gridview = (GridView) getView().findViewById(R.id.gridview);
-        /////gridview.setAdapter(new ImageAdapter(this));
 
-        //gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-          //  public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-              //  Toast.makeText(SportFragment.this, "" + position, Toast.LENGTH_SHORT).show();
-            //}
-        //});
+
+        ArrayList<String> post_img_path = new ArrayList<String>();
+        List<Post> posts = new Select().from(Post.class).execute();
+
+        //for each post p in posts
+        for (Post p : posts) {
+            post_img_path.add(p.getImg());
+        }
+
+        //executeSingle is just one
+        GridView gridView = (GridView) view.findViewById(R.id.gridview);
+        gridView.setAdapter(new ImageAdapter(getActivity(), post_img_path));
         return view;
     }
 }
